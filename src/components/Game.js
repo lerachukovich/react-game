@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 import Board from "./Board";
-import Rules from "./Rules";
+// import Rules from "./Rules";
 
 class Game extends React.Component {
 
@@ -15,7 +15,7 @@ class Game extends React.Component {
                     </div>
                 </div>
                 <div className="rules">
-                    <Rules />
+                    {/*<Rules />*/}
                 </div>
             </div>
 
