@@ -46,6 +46,7 @@
     position: absolute;
     top: 10%;
     right: 10%;
+    display: flex;
 }
 
 .rules_text {
@@ -56,13 +57,14 @@
     font-size: 2rem;
 }
 
-#Popover1 {
+#Popover1,
+#Popover2{
     padding: 20px 25px;
 }
 
 .moves {
     position: absolute;
-    top: 10%;
+    top: 88%;
     left: 10%;
 }
 
@@ -106,6 +108,18 @@
     top: 30%;
 }
 
+.hotkey_instruction {
+    text-align: center;
+}
+
+.hotkey_instruction:first-child {
+    margin-top: 10px;
+}
+
+.hotkey_instruction:last-child {
+    margin-bottom: 10px;
+}
+
 .footer {
     position: absolute;
     bottom: 10px;
@@ -118,4 +132,30 @@
 .footer p {
     margin-right: 10px;
     margin-bottom: 0;;
+}
+
+@media(max-width: 1115px) {
+    .rules {
+        top: 80%;
+        left: 42%;
+        margin: 130px 0;
+    }
+    .game_music {
+        top: 112%;
+        left: 38%;
+        display: flex;
+        padding-bottom: 50px;
+    }
+    .footer {
+        top: 120%;
+    }
+}
+
+@media(max-width: 655px) {
+    .rules {
+        left: 35%;
+    }
+    .game_music {
+        left: 30%;
+    }
 }
