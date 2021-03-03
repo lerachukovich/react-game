@@ -2,6 +2,7 @@ import React from 'react';
 import '../App.css';
 import Board from "./Board";
 import Rules from "./Rules";
+import Footer from "./Footer";
 
 class Game extends React.Component {
 
@@ -17,6 +18,7 @@ class Game extends React.Component {
                 <div className="rules">
                     <Rules />
                 </div>
+                <Footer />
             </div>
 
         )
