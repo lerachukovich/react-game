@@ -23,6 +23,30 @@ class Board extends React.Component {
         );
     }
 
+    addHotKeys() {
+        document.addEventListener('keypress', (e) => {
+            if(e.key === 'q') {
+                document.querySelector( "div.board > div:nth-child(2) > button:nth-child(1)").click()
+            } else if (e.key === 'w') {
+                document.querySelector( "div.board > div:nth-child(2) > button:nth-child(2)").click()
+            } else if (e.key === 'e') {
+                document.querySelector( "div.board > div:nth-child(2) > button:nth-child(3)").click()
+            } else if (e.key === 'a') {
+                document.querySelector( "div.board > div:nth-child(3) > button:nth-child(1)").click()
+            } else if (e.key === 's') {
+                document.querySelector( "div.board > div:nth-child(3) > button:nth-child(2)").click()
+            } else if (e.key === 'd') {
+                document.querySelector( "div.board > div:nth-child(3) > button:nth-child(3)").click()
+            } else if (e.key === 'z') {
+                document.querySelector( "div.board > div:nth-child(4) > button:nth-child(1)").click()
+            } else if (e.key === 'x') {
+                document.querySelector( "div.board > div:nth-child(4) > button:nth-child(2)").click()
+            } else if (e.key === 'c') {
+                document.querySelector( "div.board > div:nth-child(4) > button:nth-child(3)").click()
+            }
+        });
+    }
+
     startNewGame() {
         return (
             <button className="btn btn-warning start_btn" onClick={() => {
@@ -93,6 +117,7 @@ class Board extends React.Component {
         });
     }
 
+
     render() {
         const winner = this.calculateWinner(this.state.squares);
         let status;
@@ -137,7 +162,7 @@ class Board extends React.Component {
                     <button className='btn btn-info' onClick={() => this.playMusic()}>Play Music</button>
                     <div>{this.muteMusic()}</div>
                 </div>
-
+                {this.addHotKeys()}
             </div>
         );
     };
