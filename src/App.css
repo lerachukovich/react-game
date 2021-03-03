@@ -1,38 +1,107 @@
-.App {
-  text-align: center;
+.square {
+    border: 1px solid #999;
+    font-size: 5rem;
+    text-align: center;
+    width: 150px;
+    height: 150px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.board-row {
+    display: flex;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.title {
+    font-size: 5rem;
+    text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.winner {
+    width: 300px;
+    height: 300px;
+    font-size: 5rem;
+    background: cadetblue;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.start_btn {
+    margin-top: 50px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.rules {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+}
+
+.rules_text {
+    font-size: 1rem;
+}
+
+.alert_msg {
+    font-size: 2rem;
+}
+
+#Popover1 {
+    padding: 20px 25px;
+}
+
+.moves {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+}
+
+.moves_num {
+
+}
+
+.time {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+}
+
+.alert,
+.alert_msg {
+    animation-name: example;
+    animation-duration: 0.5s;
+}
+
+@keyframes example {
+    0%   {
+        width: 300px;
+    }
+    25% {
+        width: 350px;
+    }
+    50%  {
+        width: 400px;
+    }
+    75% {
+        width: 450px;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.game_music {
+    position: absolute;
+    left: 10%;
+    top: 30%;
 }
