@@ -1,0 +1,167 @@
+.square {
+    border: 1px solid #999;
+    font-size: 5rem;
+    text-align: center;
+    width: 150px;
+    height: 150px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.board-row {
+    display: flex;
+}
+
+.title {
+    font-size: 5rem;
+    text-align: center;
+}
+
+.winner {
+    width: 300px;
+    height: 300px;
+    font-size: 5rem;
+    background: cadetblue;
+}
+
+.start_btn {
+    margin-top: 50px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.rules {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    display: flex;
+}
+
+.rules_text {
+    font-size: 1rem;
+}
+
+.alert_msg {
+    font-size: 2rem;
+}
+
+#Popover1,
+#Popover2,
+#Popover3{
+    padding: 20px 25px;
+}
+
+.moves {
+    position: absolute;
+    top: 88%;
+    left: 10%;
+}
+
+.moves_num {
+
+}
+
+.time {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+}
+
+.alert,
+.alert_msg {
+    animation-name: example;
+    animation-duration: 0.5s;
+}
+
+@keyframes example {
+    0%   {
+        width: 300px;
+    }
+    25% {
+        width: 350px;
+    }
+    50%  {
+        width: 400px;
+    }
+    75% {
+        width: 450px;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.game_music {
+    position: absolute;
+    left: 10%;
+    top: 30%;
+}
+
+.hotkey_instruction {
+    text-align: center;
+}
+
+.hotkey_instruction:first-child {
+    margin-top: 10px;
+}
+
+.hotkey_instruction:last-child {
+    margin-bottom: 10px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-family: Neucha, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer p {
+    margin-right: 10px;
+    margin-bottom: 0;;
+}
+
+.rules_text{
+    flex-direction: column;
+    display: flex;
+}
+
+@media(max-width: 1115px) {
+    .rules {
+        top: 80%;
+        left: 42%;
+        margin: 130px 0;
+    }
+    .game_music {
+        top: 112%;
+        left: 38%;
+        display: flex;
+        padding-bottom: 50px;
+    }
+    .footer {
+        top: 120%;
+    }
+}
+
+@media(max-width: 655px) {
+    .rules {
+        left: 35%;
+    }
+    .game_music {
+        left: 30%;
+    }
+}
