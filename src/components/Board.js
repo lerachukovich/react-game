@@ -150,6 +150,7 @@ class Board extends React.Component {
             status = <div className="alert alert-dismissible alert-info">
                 <h2 className='alert_msg'> Well done, {winner}, you won in {this.state.moves} moves!</h2>
             </div>
+
         } else {
             status =
                 <h1>Next player:
@@ -202,8 +203,34 @@ class Board extends React.Component {
         for (let i = 0; i < lines.length; i++) {
             const [a, b, c] = lines[i];
             if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+                let currentResult = [];
+                currentResult.push(squares[a], this.state.moves);
+                if (localStorage.getItem('statistics')) {
+                    let stats = JSON.parse(localStorage.getItem('statistics'));
+                    console.log(stats, typeof stats);
+                    stats.push(currentResult)
+                    localStorage.setItem('statistics', JSON.stringify(stats));
+                } else {
+                    let stats = [];
+                    console.log(stats, typeof stats);
+                    stats.push(currentResult)
+                    localStorage.setItem('statistics', JSON.stringify(stats));
+                }
                 return squares[a];
             } else if (!squares.includes(null)) {
+                let currentResult = [];
+                currentResult.push('cat', this.state.moves);
+                if (localStorage.getItem('statistics')) {
+                    let stats = JSON.parse(localStorage.getItem('statistics'));
+                    console.log(stats, typeof stats);
+                    stats.push(currentResult)
+                    localStorage.setItem('statistics', JSON.stringify(stats));
+                } else {
+                    let stats = [];
+                    console.log(stats, typeof stats);
+                    stats.push(currentResult)
+                    localStorage.setItem('statistics', JSON.stringify(stats));
+                }
                 return 'CAT'
             }
         }

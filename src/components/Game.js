@@ -4,6 +4,7 @@ import Board from "./Board";
 import Rules from "./Rules";
 import Footer from "./Footer";
 import HotKeys from "./HotKeys";
+import Statistic from "./Statistics";
 
 class Game extends React.Component {
 
@@ -19,6 +20,7 @@ class Game extends React.Component {
                 <div className="rules">
                     <Rules />
                     <HotKeys />
+                    <Statistic />
                 </div>
                 <Footer />
             </div>

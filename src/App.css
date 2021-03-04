@@ -58,7 +58,8 @@
 }
 
 #Popover1,
-#Popover2{
+#Popover2,
+#Popover3{
     padding: 20px 25px;
 }
 
@@ -132,6 +133,11 @@
 .footer p {
     margin-right: 10px;
     margin-bottom: 0;;
+}
+
+.rules_text{
+    flex-direction: column;
+    display: flex;
 }
 
 @media(max-width: 1115px) {
