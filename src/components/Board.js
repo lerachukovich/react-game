@@ -4,12 +4,22 @@ import Square from "./Square";
 class Board extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            squares: Array(9).fill(null),
-            xIsNext: true,
-            moves: 0,
-            soundOn: false,
-            musicOn: false,
+        if(localStorage.getItem('xIsNext') === null) {
+            this.state = {
+                squares: Array(9).fill(null),
+                xIsNext: true,
+                moves: 0,
+                soundOn: false,
+                musicOn: false,
+            }
+        } else {
+            this.state = {
+                squares: JSON.parse(localStorage.getItem('squares')),
+                xIsNext: JSON.parse(localStorage.getItem('xIsNext')),
+                moves: JSON.parse(localStorage.getItem('moves')),
+                soundOn: JSON.parse(localStorage.getItem('soundOn')),
+                musicOn: JSON.parse(localStorage.getItem('musicOn')),
+            }
         }
         this.music = new Audio('https://www.bensound.com/bensound-music/bensound-erf.mp3');
     }
@@ -25,24 +35,24 @@ class Board extends React.Component {
 
     addHotKeys() {
         document.addEventListener('keypress', (e) => {
-            if(e.key === 'q') {
-                document.querySelector( "div.board > div:nth-child(2) > button:nth-child(1)").click()
+            if (e.key === 'q') {
+                document.querySelector("div.board > div:nth-child(2) > button:nth-child(1)").click()
             } else if (e.key === 'w') {
-                document.querySelector( "div.board > div:nth-child(2) > button:nth-child(2)").click()
+                document.querySelector("div.board > div:nth-child(2) > button:nth-child(2)").click()
             } else if (e.key === 'e') {
-                document.querySelector( "div.board > div:nth-child(2) > button:nth-child(3)").click()
+                document.querySelector("div.board > div:nth-child(2) > button:nth-child(3)").click()
             } else if (e.key === 'a') {
-                document.querySelector( "div.board > div:nth-child(3) > button:nth-child(1)").click()
+                document.querySelector("div.board > div:nth-child(3) > button:nth-child(1)").click()
             } else if (e.key === 's') {
-                document.querySelector( "div.board > div:nth-child(3) > button:nth-child(2)").click()
+                document.querySelector("div.board > div:nth-child(3) > button:nth-child(2)").click()
             } else if (e.key === 'd') {
-                document.querySelector( "div.board > div:nth-child(3) > button:nth-child(3)").click()
+                document.querySelector("div.board > div:nth-child(3) > button:nth-child(3)").click()
             } else if (e.key === 'z') {
-                document.querySelector( "div.board > div:nth-child(4) > button:nth-child(1)").click()
+                document.querySelector("div.board > div:nth-child(4) > button:nth-child(1)").click()
             } else if (e.key === 'x') {
-                document.querySelector( "div.board > div:nth-child(4) > button:nth-child(2)").click()
+                document.querySelector("div.board > div:nth-child(4) > button:nth-child(2)").click()
             } else if (e.key === 'c') {
-                document.querySelector( "div.board > div:nth-child(4) > button:nth-child(3)").click()
+                document.querySelector("div.board > div:nth-child(4) > button:nth-child(3)").click()
             }
         });
     }
@@ -104,21 +114,32 @@ class Board extends React.Component {
     }
 
     handleClick(i) {
-        const squares = this.state.squares.slice();
-        if (this.calculateWinner(squares) || squares[i]) {
+
+        const square = this.state.squares.slice();
+        if (this.calculateWinner(square) || square[i]) {
             return;
         }
-        squares[i] = this.state.xIsNext ? 'X' : '0';
+        square[i] = this.state.xIsNext ? 'X' : '0';
+
         this.setState({
-            squares: squares,
+            squares: square,
             xIsNext: !this.state.xIsNext,
             moves: this.state.moves + 1,
             musicOn: !this.state.musicOn,
         });
     }
 
+    rememberState() {
+        const {squares, xIsNext, moves, soundOn, musicOn} = this.state;
+        localStorage.setItem('squares', JSON.stringify(squares));
+        localStorage.setItem('xIsNext', JSON.stringify(xIsNext));
+        localStorage.setItem('moves', JSON.stringify(moves));
+        localStorage.setItem('soundOn', JSON.stringify(soundOn));
+        localStorage.setItem('musicOn', JSON.stringify(musicOn));
+    }
 
     render() {
+        this.rememberState()
         const winner = this.calculateWinner(this.state.squares);
         let status;
         if (winner === 'CAT') {
